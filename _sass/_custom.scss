@@ -1,0 +1,126 @@
+// Custom Styles
+
+h2 {color: pink!important;}
+
+// CSS3 background slideshow
+
+.slideshow {
+    background-color: #485f3f;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    z-index: -1;
+}
+
+.slideshow,
+.slideshow:after {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0px;
+    left: 0px;
+    z-index: 0;
+}
+.slideshow:after {
+    content: '';
+    background: transparent url(../images/pattern.png) repeat top left;
+}
+.slideshow li span {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    color: transparent;
+    background-size: cover;
+    background-position: 50% 50%;
+    background-repeat: none;
+    opacity: 0;
+    z-index: 0;
+    -webkit-backface-visibility: hidden;
+    animation: imageAnimation 36s linear infinite 0s;
+}
+
+.slideshow li:nth-child(1) span {
+    background-image: url('../images/header-meadow-view-farms.jpg');
+}
+.slideshow li:nth-child(2) span {
+    background-image: url('../images/rebel-peek-slide.jpg');
+    animation-delay: 6s;
+}
+.slideshow li:nth-child(3) span {
+    background-image: url('../images/front-swing-slide.jpg');
+    animation-delay: 12s;
+}
+.slideshow li:nth-child(4) span {
+    background-image: url('../images/front-dock-slide.jpg');
+    animation-delay: 18s;
+}
+.slideshow li:nth-child(5) span {
+    background-image: url('../images/front-garden-slide.jpg');
+    animation-delay: 24s;
+}
+.slideshow li:nth-child(6) span {
+    background-image: url('../images/back-deck.jpg');
+    animation-delay: 30s;
+}
+.slideshow li:nth-child(2) div {animation-delay: 6s;}
+.slideshow li:nth-child(3) div {animation-delay: 12s;}
+.slideshow li:nth-child(4) div {animation-delay: 18s;}
+.slideshow li:nth-child(5) div {animation-delay: 24s;}
+.slideshow li:nth-child(6) div {animation-delay: 30s;}
+
+/* Animation for the slideshow images */
+@keyframes imageAnimation { 
+    0% {
+        opacity: 0;
+        animation-timing-function: ease-in;
+    }
+    8% {
+        opacity: 1;
+        transform: scale(1.05);
+        animation-timing-function: ease-out;
+    }
+    17% {
+        opacity: 1;
+        transform: scale(1.1);
+    }
+    25% {
+        opacity: 0;
+        transform: scale(1.1);
+    }
+    100% { opacity: 0 }
+}
+
+/* Show at least something when animations not supported */
+.no-cssanimations .slideshow li span{
+    opacity: 1;
+}
+
+main {
+    position: relative;
+    width: 100%;
+    max-width: 790px;
+    margin: 0 auto;
+    padding: 33px 15px;
+    z-index: 10;
+
+
+    section {
+        background-color: rgba(#fff, 0.9);
+        padding: 4vw 6vw;
+        text-align: center;
+        border-radius: 8px;
+        min-height: 50vh;
+    }
+
+    .logo {
+        margin: 0 0 22px 0;
+        text-align: center;
+    }
+
+    #logo {
+        max-width: 300px;
+        width: 72%;
+    }
+}
